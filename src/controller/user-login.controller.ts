@@ -15,14 +15,9 @@ import modelUser from '../models/user.models'
 
  
 class UserController{
-  public async restoreKey(req: Request, res: Response):Promise<any>{
-    
-    try{
-      var user = await modelUser.updateUsers(req.body)
-      res.json(user)
-    }catch(err){
-      res.json("err")
-    }
+  public async restoreKey(req: Request, res: Response):Promise<any>{    
+    var user = await modelUser.updateUsers(req.body)
+    res.json(user)
   }
 }
 export default new UserController

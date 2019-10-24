@@ -21,13 +21,8 @@ const user_models_1 = __importDefault(require("../models/user.models"));
 class UserController {
     restoreKey(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            try {
-                var user = yield user_models_1.default.updateUsers(req.body);
-                res.json(user);
-            }
-            catch (err) {
-                res.json("err");
-            }
+            var user = yield user_models_1.default.updateUsers(req.body);
+            res.json(user);
         });
     }
 }

@@ -25,15 +25,18 @@ const database_1 = __importDefault(require("../database"));
 class UserModel {
     updateUsers(res) {
         return __awaiter(this, void 0, void 0, function* () {
-            var token = 'jose1245';
-            var token1 = 'jose';
-            const user = `UPDATE users SET token_renovate_password = '${token1}' WHERE token_renovate_password like  '${token}'`;
-            //const user = `select *  from users where token_renovate_password like '${token}'`;
+            console.log(res);
+            const user = `UPDATE users SET password = '${res.password}' WHERE token_renovate_password like  '${res.token}'`;
             try {
                 var poolResponse = database_1.default.connect().then(() => __awaiter(this, void 0, void 0, function* () {
                     const request = new sql.Request(database_1.default);
                     const result = yield request.query(user);
-                    return { message: "ok" };
+                    if (result.rowsAffected.length == 0) {
+                        return { message: "Usuario incorrecto" };
+                    }
+                    else {
+                        return { message: "ok" };
+                    }
                 }));
                 return poolResponse;
             }
