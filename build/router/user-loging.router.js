@@ -13,6 +13,7 @@ class UserRoutes {
     }
     config() {
         this.router.post('/restore/user', user_login_controller_1.default.restoreKey);
+        this.router.post('/send/emailToken', user_login_controller_1.default.sendEmailToken);
     }
 }
 exports.default = new UserRoutes().router;

@@ -12,7 +12,8 @@ class UserRoutes{
           this.config();
      }
      config():void{
-          this.router.post('/restore/user',userController.restoreKey);        
+          this.router.post('/restore/user',userController.restoreKey);
+          this.router.post('/send/emailToken',userController.sendEmailToken);         
      }
 }
  

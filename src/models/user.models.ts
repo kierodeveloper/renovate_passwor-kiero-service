@@ -1,6 +1,7 @@
 //const pool = require('../database');
 import * as sql from 'mssql';
 import pool from '../database'
+var randtoken = require('rand-token');
 
 
 import { promises } from 'fs';
@@ -16,18 +17,39 @@ class UserModel{
         var poolResponse = pool.connect().then( async () => {
           const request = new sql.Request(pool);
           const result =  await request.query(user);
-          
-          if(result.rowsAffected.length == 0){
+          pool.close();
+          if(result.rowsAffected[0] == 0){
             return {message:"Usuario incorrecto"}
           }else{          
             return {message:"ok"}
           }
+         
       })
       return poolResponse
       }catch(err){
       console.log("error");      
+    }    
+  }
+  // --------------sendEmailToken: Usuario token-----------------\\
+  public async sendEmailToken(req:any){    
+    var token = randtoken.generate(20);    
+    const user = `UPDATE users SET token_renovate_password = '${token}' WHERE email like  '${req.email}'`;
+    try{
+      var poolResponse = pool.connect().then( async ()=>{
+          const request = new sql.Request(pool);
+          const result =  await request.query(user);          
+          pool.close();
+          if(result.rowsAffected[0] == 0){
+            return {message:"Usuario incorrecto"}
+          }else{          
+            return {message:"ok"}
+          }         
+        })
+        return poolResponse;
+    }catch(err){
+      console.error("error")
     }
-    
+    sendEmail.sendMail(req,token)
   }
 }
 

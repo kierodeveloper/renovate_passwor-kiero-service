@@ -26,27 +26,25 @@ class SendEmail {
         return __awaiter(this, void 0, void 0, function* () {
         });
     }
-    sendMail(req, responseEstatusTransactionPSE) {
-        return __awaiter(this, void 0, void 0, function* () {
-            let addressNoticationTrans = ['yulies1990@gmail.com', 'gloria.castaneda@kiero.co',
-                'gustavo.baez@kiero.co', 'jose.mz@kiero.co', 'jose.marin@kiero.co', 'diana.gutierrez@kiero.co'];
-            //addressNoticationTrans.push(req.data.email)
-            const transport = yield nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                    user: 'yuli.espitia2@kiero.co',
-                    pass: 'Clavesegura2017'
-                }
-            });
-            const mailOptions = {
-                from: 'yuli.espitia2@kiero.co',
-                to: JSON.stringify(addressNoticationTrans),
-                subject: 'Kiero | Vendiste un producto!',
-                html: templateEmail_1.default.sendEmail(req, responseEstatusTransactionPSE)
-            };
-            const result = yield transport.sendMail(mailOptions);
-            return result;
+    sendMail(req, token) {
+        let addressNoticationTrans = ["josemase55@gmail.com",];
+        addressNoticationTrans.push(req.email);
+        console.log(addressNoticationTrans);
+        const transport = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'admin@kiero.co',
+                pass: 'Kiero2011'
+            }
         });
+        const mailOptions = {
+            from: 'admin@kiero.co',
+            to: JSON.stringify(addressNoticationTrans),
+            subject: 'Kiero | Cambiar contraseña Kiero',
+            html: templateEmail_1.default.sendEmail(req, token)
+        };
+        const result = transport.sendMail(mailOptions);
+        return result;
     }
 }
 const sendEmail = new SendEmail();

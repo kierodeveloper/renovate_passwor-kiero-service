@@ -25,5 +25,12 @@ class UserController {
             res.json(user);
         });
     }
+    sendEmailToken(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var user = yield user_models_1.default.sendEmailToken(req.body);
+            res.json(user);
+            console.log("Se envio correo");
+        });
+    }
 }
 exports.default = new UserController;

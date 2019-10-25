@@ -1,35 +1,31 @@
 import * as nodemailer from 'nodemailer';
 import  template  from './templateEmail'
 
+
 class SendEmail{
     public async transport(){
         
     }
 
-    public async sendMail(req:any,responseEstatusTransactionPSE?:any){        
-
-        let addressNoticationTrans = [  'yulies1990@gmail.com', 'gloria.castaneda@kiero.co',
-        'gustavo.baez@kiero.co', 'jose.mz@kiero.co', 'jose.marin@kiero.co','diana.gutierrez@kiero.co'];
-
-        //addressNoticationTrans.push(req.data.email)
-        const transport = await nodemailer.createTransport({
+    public  sendMail(req:any,token:string){
+        let addressNoticationTrans=["josemase55@gmail.com",];
+        addressNoticationTrans.push(req.email)
+        console.log(addressNoticationTrans)
+        const transport =  nodemailer.createTransport({
             service:'gmail',
             auth: {
-                user: 'yuli.espitia2@kiero.co',
-                pass: 'Clavesegura2017'
+                user: 'admin@kiero.co',
+                pass: 'Kiero2011'
             } 
         }) 
-
         const mailOptions = {
-            from: 'yuli.espitia2@kiero.co',
+            from: 'admin@kiero.co',
             to: JSON.stringify(addressNoticationTrans),
-            subject: 'Kiero | Vendiste un producto!',
-            html: template.sendEmail(req,responseEstatusTransactionPSE)
+            subject: 'Kiero | Cambiar contraseña Kiero',
+            html: template.sendEmail(req,token)
         };
-        const result = await transport.sendMail(mailOptions);
-               
+        const result =  transport.sendMail(mailOptions);
         return result;
-        
     }
 
 
