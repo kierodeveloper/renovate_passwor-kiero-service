@@ -8,7 +8,7 @@ class SendEmail{
     }
 
     public  sendMail(req:any,token:string){
-        let addressNoticationTrans=["josemase55@gmail.com",];
+        let addressNoticationTrans=[];
         addressNoticationTrans.push(req.email)
         console.log(addressNoticationTrans)
         const transport =  nodemailer.createTransport({

@@ -23,12 +23,11 @@ class UserModel {
           var token = randtoken.generate(20);
           const user = `UPDATE users SET token_renovate_password = '${token}' WHERE token_renovate_password like  '${res.token}'`;
           try {
-            var poolResponse = pool.connect().then(async () => {
+              pool.connect().then(async () => {
               const request = new sql.Request(pool);
               const result = await request.query(user);
               pool.close();              
             })
-            return poolResponse;
           } catch (err) {
             console.error("error")
           }

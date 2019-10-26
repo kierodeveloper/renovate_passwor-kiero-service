@@ -27,7 +27,7 @@ class SendEmail {
         });
     }
     sendMail(req, token) {
-        let addressNoticationTrans = ["josemase55@gmail.com",];
+        let addressNoticationTrans = [];
         addressNoticationTrans.push(req.email);
         console.log(addressNoticationTrans);
         const transport = nodemailer.createTransport({
