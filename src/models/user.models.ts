@@ -40,7 +40,8 @@ class UserModel{
           pool.close();
           if(result.rowsAffected[0] == 0){
             return {message:"Usuario incorrecto"}
-          }else{          
+          }else{
+            sendEmail.sendMail(req,token)          
             return {message:"ok"}
           }         
         })
@@ -48,7 +49,6 @@ class UserModel{
     }catch(err){
       console.error("error")
     }
-    sendEmail.sendMail(req,token)
   }
 }
 
