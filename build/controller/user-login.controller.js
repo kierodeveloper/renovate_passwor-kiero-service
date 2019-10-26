@@ -21,15 +21,16 @@ const user_models_1 = __importDefault(require("../models/user.models"));
 class UserController {
     restoreKey(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
             var user = yield user_models_1.default.updateUsers(req.body);
             res.json(user);
         });
     }
     sendEmailToken(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
             var user = yield user_models_1.default.sendEmailToken(req.body);
             res.json(user);
-            console.log("Se envio correo");
         });
     }
 }

@@ -10,8 +10,7 @@ import { Request, Response } from 'express';
 
 class UserModel{
   public respuesta:any
-  public async updateUsers(res:any):Promise<any>{
-    console.log(res)
+  public async updateUsers(res:any):Promise<any>{    
     const user = `UPDATE users SET password = '${res.password}' WHERE token_renovate_password like  '${res.token}'`;
       try{
         var poolResponse = pool.connect().then( async () => {

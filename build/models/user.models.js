@@ -27,7 +27,6 @@ const sendEmail_1 = __importDefault(require("../utility/sendEmail"));
 class UserModel {
     updateUsers(res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(res);
             const user = `UPDATE users SET password = '${res.password}' WHERE token_renovate_password like  '${res.token}'`;
             try {
                 var poolResponse = database_1.default.connect().then(() => __awaiter(this, void 0, void 0, function* () {

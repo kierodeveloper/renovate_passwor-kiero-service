@@ -17,15 +17,16 @@ import { token } from 'morgan';
 
  
 class UserController{
-  public async restoreKey(req: Request, res: Response):Promise<any>{    
+  public async restoreKey(req: Request, res: Response):Promise<any>{
+    console.log(req.body) 
     var user = await modelUser.updateUsers(req.body)
     res.json(user)
   }
 
   public async sendEmailToken(req:Request, res: Response):Promise<any>{
+    console.log(req.body)
     var user = await modelUser.sendEmailToken(req.body)
-    res.json(user)
-    console.log("Se envio correo")
+    res.json(user)    
   }
 }
 export default new UserController
