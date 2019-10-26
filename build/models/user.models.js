@@ -61,6 +61,7 @@ class UserModel {
                         return { message: "Usuario incorrecto" };
                     }
                     else {
+                        sendEmail_1.default.sendMail(req, token);
                         return { message: "ok" };
                     }
                 }));
@@ -69,7 +70,6 @@ class UserModel {
             catch (err) {
                 console.error("error");
             }
-            sendEmail_1.default.sendMail(req, token);
         });
     }
 }
