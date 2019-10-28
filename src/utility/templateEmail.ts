@@ -60,7 +60,7 @@ class Template{
                   <table width="100%" border="0" cellpadding="0" cellspacing="0">
                   <tbody><tr>
                   <td align="center" style="padding:14px 20px 14px 20px;background-color:#e60023;border-radius:4px">
-                  <a href="http://localhost:3000/forget?-${token}-" style="font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:bold;font-size:18px;line-height:1.5;color:#ffffff;text-decoration:none;display:block;text-align:center;max-width:400px;overflow:hidden;text-overflow:ellipsis" target="_blank" data-saferedirecturl="">
+                  <a href="http://l144.217.222.109:4000/forget?-${token}-" style="font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:bold;font-size:18px;line-height:1.5;color:#ffffff;text-decoration:none;display:block;text-align:center;max-width:400px;overflow:hidden;text-overflow:ellipsis" target="_blank" data-saferedirecturl="">
                   Cambiar Contraseña
                   </a>
                   </tbody></table>
