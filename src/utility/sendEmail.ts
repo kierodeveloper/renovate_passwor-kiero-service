@@ -7,7 +7,7 @@ class SendEmail{
         
     }
 
-    public  sendMail(req:any,token:string){
+    public  sendMail = ( async (req:any,token:string) => {
         let addressNoticationTrans=[];
         addressNoticationTrans.push(req.email)
         console.log(addressNoticationTrans)
@@ -26,7 +26,7 @@ class SendEmail{
         };
         const result =  transport.sendMail(mailOptions);
         return result;
-    }
+    })
 
 
 }
