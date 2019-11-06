@@ -14,7 +14,7 @@ class UserModel {
   public respuesta: any
   public async updateUsers(res: any): Promise<any> {
     const password = md5(res.password)
-    const user = `UPDATE users SET password = '${res.password}' WHERE token_renovate_password like  '${res.token}'`;
+    const user = `UPDATE users SET password = '${password}' WHERE token_renovate_password like  '${res.token}'`;
    
     try {
       var poolResponse = pool.connect().then(async () => {
