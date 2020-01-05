@@ -18,9 +18,9 @@ export default {
     },
     
     config:{
-        user: 'adminKieroDatabase',
-        password: '@daTNO6p@AzZ',
-        server: '190.85.232.78',
+        user: 'SA',
+        password: '12345Wv53010oj55',
+        server: '158.69.183.107',
         database: 'DBKiero_Productos',
     }
 
